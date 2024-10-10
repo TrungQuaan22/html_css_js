@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.logo {
+    
+    padding: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-list li {
+    margin-bottom: 20px;
+}
+
+.nav-list li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.nav-list li a i {
+    margin-right: 10px;
+}
+
+.nav-list li a:hover {
+    background-color: #f0f0f0;
+}
+
+.nav-list li a.active {
+    background-color: #2f80ed;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.section-title {
+    padding: 10px 20px;
+    color: #999;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* Icon placeholders (you can replace these with actual icons) */
+.icon-grid:before { content: "🔲"; }
+.icon-heart:before { content: "❤️"; }
+.icon-inbox:before { content: "📥"; }
+.icon-list:before { content: "📋"; }
+.icon-stock:before { content: "📦"; }
+.icon-pricing:before { content: "💲"; }
+.icon-calendar:before { content: "📅"; }
+.icon-todo:before { content: "📝"; }
+.icon-contact:before { content: "📞"; }
+.icon-invoice:before { content: "📃"; }
+.icon-ui:before { content: "🖌️"; }
+.icon-team:before { content: "👥"; }
+.icon-table:before { content: "📊"; }
+.icon-settings:before { content: "⚙️"; }
+.icon-logout:before { content: "🔌"; }
+
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+header .user-options {
+    display: flex;
+    align-items: center;
+}
+
+header .user-options img {
+    width: 30px;
+    margin-left: 20px;
+}
+
+header .user-options span {
+    margin-left: 10px;
+}
+
+.products-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.banner {
+    text-align: center;
+    background-color: #2f80ed;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.banner h2 {
+    margin-bottom: 10px;
+}
+
+.banner button {
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.product-list {
+    display: flex;
+    gap: 20px;
+}
+
+.product-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product-item span {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.product-item button {
+    padding: 10px 15px;
+    background-color: #2f80ed;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
