@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 body {
-    font-family: Nunito Sans;
     display: flex;
     min-height: 100vh;
     background-color: #f4f4f4;
@@ -14,15 +14,21 @@ body {
 /* sidebar */
 .sidebar {
     width: 250px;
+    height: 100vh;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: width 0.3s ease;
+    position: fixed;
+    top: 70px; /* Bắt đầu từ dưới header */
+    left: 0;
+    transition: width 0.5s ease;
+    z-index: 1000;
 }
 .sidebar.collapsed {
     width: 0;
+    overflow: hidden;
 }
 
 nav {
@@ -38,8 +44,12 @@ nav {
 .nav-list li {
     margin-bottom: 10px;
     margin-left: 15px;
+    white-space: nowrap;
+    overflow: hidden;
 }
-
+.sidebar.collapsed .nav-list, .sidebar p  {
+    display: none; /* Ẩn text khi sidebar thu nhỏ */
+}
 .nav-list li a {
     display: flex;
     align-items: center;
@@ -86,13 +96,18 @@ nav {
     display: flex;
     width: 100%;
     margin-top: 70px;
+    
 }
 
 /* .main-content */
 .main-content {
     flex: 1;
+    transition: margin-left 0.3s ease;
+    margin-left: 250px;
 }
-
+.sidebar.collapsed + .main-content {
+    margin-left: 70px;
+}
 header {
     display: flex;
     justify-content: space-between;
@@ -103,6 +118,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 9999;
 }
 
 .logo {
@@ -140,11 +156,9 @@ header {
 
 header input.search {
     width: 400px;
-    /* Make search bar longer */
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 20px;
-    /* Round the search bar */
     background-color: #f9f9f9;
     transition: all 0.3s ease;
     padding-left: 50px;
@@ -160,7 +174,6 @@ header input.search:focus {
     display: flex;
     align-items: center;
     gap: 20px;
-    /* Space between user option items */
 }
 
 .user-options .fa-bell {
@@ -198,6 +211,7 @@ header input.search:focus {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: none;
+    z-index: 999;
 }
 
 .language-list li {
@@ -287,38 +301,74 @@ header input.search:focus {
     font-size: 12px;
 }
 
-.products-section h1 {
-    font-family: Nunito Sans;
-}
-
 .products-section {
-    padding: 20px;
+    padding: 30px 20px;
     border-radius: 10px;
 }
 
 .banner {
-    text-align: center;
+    position: relative;
+    text-align: left;
     background-color: #2f80ed;
     color: white;
-    padding: 20px;
+    padding: 50px 150px;
     height: 346px;
     border-radius: 10px;
     margin-bottom: 20px;
     margin-top: 20px;
+    z-index: 1;
+}
+.banner-content p {
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .banner h2 {
+    font-size: 37px;
+    font-weight: 800;
+    line-height: 48px;
     margin-bottom: 10px;
 }
 
 .banner button {
     padding: 10px 20px;
+    margin-top: 30px;
     background-color: #ff7f50;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
     cursor: pointer;
+    width: 156px;
+    height: 44px;
 }
+/* Arrow styles */
+.banner-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.banner-arrow i {
+    font-size: 24px;
+    color: white;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
 
 .product-list {
     display: flex;
@@ -326,14 +376,26 @@ header input.search:focus {
 }
 
 .product-item {
+    width: 360px;
+    height: 500px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    width: 200px;
 }
-
+.product-image {
+    position: relative;
+}
+.product-image .banner-arrow {
+    opacity: 0.5;
+}
+.product-image .banner-arrow.left-arrow  {
+    left: 5px;
+}
+.product-image .banner-arrow.right-arrow  {
+    right: 5px;
+}
 .product-item img {
     width: 100%;
     border-radius: 10px;
@@ -363,4 +425,98 @@ header input.search:focus {
     border-radius: 5px;
     color: white;
     cursor: pointer;
+}
+
+/* responsive */
+/* Media Queries cho màn hình nhỏ hơn 768px (Tablet và Mobile) */
+@media (max-width: 768px) {
+    /* Ẩn Sidebar cho màn hình nhỏ */
+    .sidebar {
+        width: 70px;
+    }
+
+    /* Điều chỉnh Main Content để chiếm toàn bộ chiều rộng */
+    .main-content {
+        margin-left: 70px;
+    }
+
+    /* Header input search trở nên nhỏ hơn */
+    header input.search {
+        width: 250px;
+    }
+
+    /* Các phần tử trong Header căn chỉnh lại */
+    .user-options {
+        gap: 10px;
+    }
+
+    .logo {
+        width: 70px;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .language-list {
+        width: 150px;
+    }
+
+    .product-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .product-item {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Media Queries cho màn hình nhỏ hơn 576px (Mobile nhỏ) */
+@media (max-width: 576px) {
+    /* Search input nhỏ hơn và dễ quản lý trên mobile */
+    header input.search {
+        width: 200px;
+        padding: 8px 10px;
+    }
+
+    .wrap-search i {
+        left: 30px;
+    }
+
+    /* Các thành phần của Banner được căn chỉnh dọc */
+    .banner-content {
+        text-align: center;
+    }
+
+    .banner-content h2 {
+        font-size: 20px;
+    }
+
+    /* Sidebar sẽ ẩn hoàn toàn và hiển thị khi nhấn vào menu */
+    .sidebar {
+        display: none;
+    }
+
+    .header-bar i {
+        display: block;
+    }
+
+    .sidebar.open {
+        display: flex;
+        position: fixed;
+        width: 70%;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        background-color: white;
+        z-index: 1000;
+    }
+
+    /* Định dạng lại sản phẩm trên mobile */
+    .product-item {
+        margin: 0 auto;
+    }
 }

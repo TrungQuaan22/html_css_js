@@ -35,3 +35,10 @@ const sidebarButton = document.querySelector('.header-bar')
 sidebarButton.addEventListener('click', () => {
     sidebar.classList.toggle('collapsed')
 })
+
+const headerBar = document.querySelector('.header-bar i');
+
+// Mở hoặc đóng sidebar khi nhấp vào nút menu
+headerBar.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+});
