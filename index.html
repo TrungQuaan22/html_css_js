@@ -1,87 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+<body>
+    <!-- Header -->
+    <header>
         <div class="logo">
             <img src="./assets/images/logo.png" alt="DashStack Logo">
         </div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="#" class="active"><i class="icon-grid"></i>Products</a></li>
-                <li><a href="#"><i class="icon-heart"></i>Favorites</a></li>
-                <li><a href="#"><i class="icon-inbox"></i>Inbox</a></li>
-                <li><a href="#"><i class="icon-list"></i>Order Lists</a></li>
-                <li><a href="#"><i class="icon-stock"></i>Product Stock</a></li>
-            </ul>
-            <hr>
-            <p class="section-title">PAGES</p>
-
-            <ul class="nav-list">
-                <li><a href="#"><i class="icon-pricing"></i>Pricing</a></li>
-                <li><a href="#"><i class="icon-calendar"></i>Calendar</a></li>
-                <li><a href="#"><i class="icon-todo"></i>To-Do</a></li>
-                <li><a href="#"><i class="icon-contact"></i>Contact</a></li>
-                <li><a href="#"><i class="icon-invoice"></i>Invoice</a></li>
-                <li><a href="#"><i class="icon-ui"></i>UI Elements</a></li>
-                <li><a href="#"><i class="icon-team"></i>Team</a></li>
-                <li><a href="#"><i class="icon-table"></i>Table</a></li>
-            </ul>
-            <hr>
-            <ul class="nav-list">
-                <li><a href="#"><i class="icon-settings"></i>Settings</a></li>
-                <li><a href="#"><i class="icon-logout"></i>Logout</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Header -->
-        <header>
-            <input type="text" placeholder="Search">
+        <div class="main-header">
+            <div class="header-bar">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="wrap-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="search" type="text" placeholder="Search">
+            </div>
             <div class="user-options">
-                <img src="assets/flag.png" alt="Language">
-                <img src="assets/user.png" alt="User">
-                <span>Moni Roy</span>
-            </div>
-        </header>
-
-        <!-- Products Section -->
-        <section class="products-section">
-            <div class="banner">
-                <h2>Enjoy free home delivery in this summer</h2>
-                <p>Designer Dresses - Pick from trendy Designer Dress</p>
-                <button>Get Started</button>
-            </div>
-            <div class="product-list">
-                <!-- Product Item -->
-                <div class="product-item">
-                    <img src="assets/watch1.png" alt="Apple Watch Series 4">
-                    <h3>Apple Watch Series 4</h3>
-                    <p>$120.00</p>
-                    <span>⭐⭐⭐⭐⭐ (131)</span>
-                    <button>Edit Product</button>
+                <div class="notification-badge">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge">6</span>
                 </div>
 
-                <!-- Duplicate Product Item for more products -->
-                <div class="product-item">
-                    <img src="assets/watch2.png" alt="Apple Watch Series 4">
-                    <h3>Apple Watch Series 4</h3>
-                    <p>$120.00</p>
-                    <span>⭐⭐⭐⭐⭐ (131)</span>
-                    <button>Edit Product</button>
+                <div class="language-dropdown">
+                    <div class="language-selected">
+                        <img src="./assets/images/flag.jpg" alt="Language">
+                        <span>English</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="language-list">
+                        <li data-lang="en">
+                          <img src="./assets/images/flag.jpg" alt="English"> <span>English</span>
+                        </li>
+                        <li data-lang="vi">
+                          <img src="./assets/images/flag-vietnam.png" alt="Vietnamese"> <span>Vietnamese</span>
+                        </li>
+                        <li data-lang="fr">
+                          <img src="./assets/images/flag-france.png" alt="French"> <span>French</span>
+                        </li>
+                      </ul>
+                </div>
+                <div class="user-profile">
+                    <img src="./assets/images/user-avatar.png" alt="User">
+                    <div class="user-info">
+                        <span class="username">Moni Roy</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                    <div class="user-dropdown">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+
                 </div>
             </div>
-        </section>
+        </div>
+
+    </header>
+    <div id="content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#"><i class="fa-solid fa-gauge-high"></i>Dashboard</a></li>
+                    <li><a href="#" class="active"><i class="fa-solid fa-table-cells-large"></i>Products</a></li>
+                    <li><a href="#"><i class="fa-regular fa-heart"></i>Favorites</a></li>
+                    <li><a href="#"><i class="fa-regular fa-message"></i>Inbox</a></li>
+                    <li><a href="#"><i class="fa-solid fa-list-check"></i>Order Lists</a></li>
+                    <li><a href="#"><i class="fa-solid fa-layer-group"></i>Product Stock</a></li>
+                </ul>
+                <hr>
+                <p class="section-title">PAGES</p>
+                <ul class="nav-list">
+                    <li><a href="#"><i class="fa-solid fa-gift"></i>Pricing</a></li>
+                    <li><a href="#"><i class="fa-solid fa-calendar-days"></i>Calendar</a></li>
+                    <li><a href="#"><i class="fa-regular fa-file-lines"></i>To-Do</a></li>
+                    <li><a href="#"><i class="fa-solid fa-user-group"></i>Contact</a></li>
+                    <li><a href="#"><i class="fa-regular fa-money-bill-1"></i>Invoice</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>UI Elements</a></li>
+                    <li><a href="#"><i class="fa-solid fa-user"></i>Team</a></li>
+                    <li><a href="#"><i class="fa-solid fa-table-cells"></i>Table</a></li>
+                </ul>
+                <hr>
+                <ul class="nav-list mt-30">
+                    <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li>
+                    <li><a href="#"><i class="fa-solid fa-power-off"></i>Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Products Section -->
+            <section class="products-section">
+                <div>
+                    <h1>Product</h1>
+                </div>
+                <div class="banner">
+                    <p>September 12-22</p>
+                    <h2>Enjoy free home delivery in this summer</h2>
+                    <p>Designer Dresses - Pick from trendy Designer Dress</p>
+                    <button>Get Started</button>
+                </div>
+                <div class="product-list">
+                    <!-- Product Item -->
+                    <div class="product-item">
+                        <img src="./assets/images/watch.png" alt="Apple Watch Series 4">
+                        <h3>Apple Watch Series 4</h3>
+                        <p>$120.00</p>
+                        <span>⭐⭐⭐⭐⭐ (131)</span>
+                        <button>Edit Product</button>
+                    </div>
+
+                    <!-- Duplicate Product Item for more products -->
+                    <div class="product-item">
+                        <img src="assets/watch2.png" alt="Apple Watch Series 4">
+                        <h3>Apple Watch Series 4</h3>
+                        <p>$120.00</p>
+                        <span>⭐⭐⭐⭐⭐ (131)</span>
+                        <button>Edit Product</button>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
+<script src="./assets/js/main.js"></script>
 </body>
+
 </html>
